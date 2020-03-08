@@ -4,6 +4,7 @@ import './reset.css';
 
 import styled from 'styled-components';
 
+import Header from '../Components/Header';
 import Box from '../Components/Box';
 
 const StyledWrapper__main = styled.section`
@@ -18,6 +19,7 @@ const StyledWrapper__main = styled.section`
 function App() {
   return (
     <>
+      <Header />
       <StyledWrapper__main>
         <Box>
           <h1>cronos</h1>
