@@ -21,9 +21,11 @@ function App() {
     <>
       <Header />
       <StyledWrapper__main>
-        <Box>
-          <h1>cronos</h1>
-        </Box>
+        <Box />
+        <Box />
+        <Box />
+        <Box />
+        <Box />
       </StyledWrapper__main>
     </>
   );
