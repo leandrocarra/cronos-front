@@ -12,14 +12,14 @@ const StyledWrapper__box = styled.section`
   box-sizing: border-box;
   padding: 4px;
   border-radius: 4px;
-  border: 3px solid rgb(28,37,140);
   box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.5);
-  min-height: 85px;
+  min-height: 80px;
   width: 100%;
   margin-bottom: 10px;
   .react {
-    background: url(${bgReact}) top center no-repeat;
-    background-size: contain;
+    /* background: url(${bgReact}) top center no-repeat;
+    background-size: contain; */
+    background-color: #6E4BF2;
   }
 `;
 
