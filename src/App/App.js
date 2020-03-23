@@ -27,8 +27,9 @@ function App() {
     <StyledWrapper>
       <Header />
       <StyledWrapper__main>
-        <Box />
-        <Box />
+        <Box/>
+        <Box/>
+        <Box/>
       </StyledWrapper__main>
     </StyledWrapper>
   );

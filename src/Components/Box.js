@@ -4,72 +4,82 @@ import React from 'react';
 import Timer from './Timer';
 
 import styled from 'styled-components';
-import Logo from '../icons/logoTimer.svg'
 
-
-const sortColor = () => {
-  const color = ['7D36A2', 'D93E5F', '5E36B1', '2788E5', '40897C'];
-  return `#${color[4]}`;
-}
-
-const StyledWrapper__box = styled.section`
+const StyledBox = styled.div`
+  /* background-color: rgba(166,149,131, .9);
+  border: 1px solid #000;
+  box-shadow: inset 1px 1px 2px 0px rgba(0,0,0,0.75); */
+  float: left;
+  width: 140px;
+  margin: 3% 0 3% 7%;
+  height: 180px;
   position: relative;
-  background-color: ${sortColor()};
-  box-sizing: border-box;
-  padding: 8x;
-  border-radius: 4px;
-  box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.5);
-  min-height: 80px;
-  width: 100%;
-  margin-bottom: 10px;
 `
 
-const StyledTitle = styled.div`
+const ContainerTitle = styled.div`
+  background-color: rgba(166,149,131, .9);
+  border: 1px solid #000;
+  box-shadow: inset 1px 1px 2px 0px rgba(0,0,0,0.75);
+  border-radius: 5px;
+  color: #000;
   width: 40%;
-  height: 77px;
+  height: 20px;
+  /* border: 1px solid red; */
+  position: absolute;
+  left: 45px;
+  padding: 2px;
+  box-sizing: border-box;
+  text-align: center;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  background-color: rgb(242,190,49);
-  color: #404040;
-  text-align: center;
-  position: relative;
-  padding: 8px 4px 0 4px;
-  box-sizing: border-box;
-  border-radius: 0 0 5px 5px;
-  box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.5);
-  left: 10px;
-  font-family: 'Fjalla One', sans-serif;
-  font-size: 20px;
-  text-transform: uppercase;
-  float: left;
 `
 
-const StyledAllTime = styled.div`
-  margin-top: 5px;
-  span {
-    font-size: 14px;
-  }
-  img {
-    margin-left: -10%;
-    width: 24px;
-    height: 24px;
-    position: relative;
-    top: 5px;
-  }
+const Conector = styled.div`
+  width: 17px;
+  height: 17px;
+  background-color: rgba(166,149,131, .9);
+  border: 1px solid #000;
+  box-shadow: inset 1px 1px 2px 0px rgba(0,0,0,0.75);
+  position: absolute;
+  left: 64px;
+  z-index: 1;
+  top: 19px;
+  border-top: 0;
+`
+
+const ClickTimerButton__right = styled.div`
+  width: 17px;
+  height: 10px;
+  background-color: rgba(166,149,131, .9);
+  border: 1px solid #000;
+  box-shadow: inset 1px 1px 2px 0px rgba(0,0,0,0.75);
+  position: absolute;
+  left: 105px;
+  z-index: 1;
+  top: 37px;
+  transform: rotate(30deg);
+`
+
+const ClickTimerButton__left = styled(ClickTimerButton__right)`
+  left: 105px;
+  z-index: 1;
+  top: 39px;
+  transform: rotate(-34deg);
+  left: 20px;
 `
 
 const Box = () => {
   return (
-    <StyledWrapper__box>
-      <StyledTitle>
-        react
-        <StyledAllTime>
-          <img src={Logo} alt="logo"/> <span>3h:34m:33s</span>
-        </StyledAllTime>
-      </StyledTitle>
-      <Timer/>
-    </StyledWrapper__box>
+    <StyledBox>
+      <ContainerTitle>
+        REACT 
+      </ContainerTitle>
+      <Conector />
+      <ClickTimerButton__left />
+      <ClickTimerButton__right />
+      <Timer />
+    </StyledBox>
   );
 }
 

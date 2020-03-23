@@ -1,55 +1,39 @@
 import React from 'react';
 
 import styled from 'styled-components';
-import play from '../icons/play.svg';
-import stop from '../icons/stop.svg';
-import pause from '../icons/pause.svg';
 
 const Circle = styled.div`
 
   .circle-rating {
     float: left;
+    width: 80px;
     position: relative;
   }
 
   .circle-rating__container {
     position: relative;
-    border: 1px solid #000;
-    border-radius: 50%;
-    box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
   }
 
   .circle-rating__magical-number {
     position: absolute;
-    color: rgb(103,42,58);
+    color: rgba(0, 0, 0, 0.38);
     font-weight: 300;
     font-size: 20px;
-    left: 50%;
-    top: 33px;
-    margin-left: -26px;
+    left: 22px;
+    top: 21px;
   }
 
 
   .circle__clock {
     position: absolute;
-    top: 0px;
-    .FocusTitle {
+    top: 5px;
+    p{
       position: absolute;
-      /* color: rgba(0,0,0,0.38); */
-      font-weight: 300;
-      left: 51px;
-      top: 16px;
-      font-size: 17px;
-      color: rgb(103,42,58)
-    }
-    .minutsLeft{
-      position: absolute;
-      color: rgb(103,42,58);
+      color: rgba(0,0,0,0.38);
       font-weight: 300;
       font-size: 12px;
-      left: 72px;
-      top: 39px;
-      color: rgb(103,42,58)
+      left: 25px;
+      top: 40px;
     }
   }
 
@@ -62,7 +46,6 @@ const Circle = styled.div`
     text-align: center;
     margin-bottom: 10px;
     float: left;
-    color: rgb(103,42,58)
   }
 
   .cirle-rating__simple {
@@ -91,55 +74,17 @@ const Circle = styled.div`
   }
 
   .circle-rating__background {
-    background-color: rgba(236,237,232);
-    box-shadow: inset 1px 0px 4px 2px rgba(0,0,0,0.75);
-    width: 134px;
-    height: 134px;
+    background-color: #fff;
+    opacity: .3;
+    width: 62px;
+    height: 62px;
     border-radius: 50%;
     position: relative;
   }
 
   .circle-rating__background.circle__clock {
-    border: 5px solid rgba(166,149,131, .7)
+    border: 5px solid rgba(0,0,0, .5);
   }
-
-  .containerButtons {
-    position: absolute;
-    top: 60px;
-    left: 0;
-    width: 100%;
-    img {
-      width: 20px;
-      height: 20px;
-      position: absolute;
-    }
-    .play {
-      right: 15px;
-    }
-    .pause {
-      left: 43%;
-    }
-    .stop {
-      left: 15px;
-    }
-  }
-
-  .containerTotalHours {
-    position: absolute;
-    top: 87px;
-    text-align: center;
-    width: 100%;
-    .investmentTitle {
-      font-size: 14px;
-    }
-    .containerHours {
-      text-align: center;
-      font-size: 14px;
-      margin-top: 4px;
-      display: block;
-    }
-  }
-
 `
 
 const ClockTimer = ({
@@ -158,10 +103,10 @@ const ClockTimer = ({
   // let milesecondsToMinuts = numberToMileseconds / 60000;
 
   // Inicializa redondinho
-  let radius = 72;
+  let radius = 36;
   let normalizedRadius = radius - 3;
 
-  const stroke = 6;
+  const stroke = 4;
   let circumference = normalizedRadius * 2 * Math.PI;
 
   // Faz o preenchimento
@@ -174,22 +119,7 @@ const ClockTimer = ({
           <div className="circle-rating__background circle__clock"></div>
           <div className="circle__clock">
             <span className="circle-rating__magical-number">{number}</span>
-            <strong className="FocusTitle">FOCO</strong>
-            <p className="minutsLeft">min</p>
-            <div className="containerButtons">
-              <img src={play} alt="play" className="play" />
-              <img src={pause} alt="pause" className="pause" />
-              <img src={stop} alt="stop" className="stop" />
-            </div>
-
-            <div className="containerTotalHours">
-              <p className="investmentTitle">INVESTIDOS</p>
-              <span className="containerHours">
-                <span className="hourTime">3h</span>
-                <span className="minutsTime">45m</span>
-              </span>
-            </div>
-
+            <p>min</p>
             <svg
               height={radius * 2}
               width={radius * 2}
