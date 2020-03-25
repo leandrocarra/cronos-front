@@ -14,10 +14,7 @@ const Circle = styled.div`
 const Timer = () => {
   return (
     <Circle>
-      <ClockTimer
-        progressStatus={6}
-        number={'18'}
-      />
+      <ClockTimer />
     </Circle>
   );
 }
