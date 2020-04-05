@@ -2,7 +2,7 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import ClockTimer from './ClockTimer';
+import ClockTimer from '../ClockTimer/ClockTimer';
 
 const Circle = styled.div`
   position: absolute;

@@ -30,7 +30,6 @@ export const Circle = styled.div`
     top: 0px;
     .FocusTitle {
       position: absolute;
-      /* color: rgba(0,0,0,0.38); */
       font-weight: 300;
       left: 51px;
       top: 16px;
@@ -109,14 +108,18 @@ export const Circle = styled.div`
       height: 20px;
       position: absolute;
     }
-    .play {
+    .playButton {
       right: 15px;
     }
-    .pause {
+    .pauseButton {
       left: 43%;
     }
-    .stop {
+    .stopButton {
       left: 15px;
+    }
+    .activeButton {
+      background-color: #c4c4c4;
+      border-radius: 50%;
     }
   }
 

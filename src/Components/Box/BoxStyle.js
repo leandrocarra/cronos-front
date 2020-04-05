@@ -1,14 +1,6 @@
-/* eslint-disable react/jsx-pascal-case */
-import React from 'react';
-
-import Timer from './Timer';
-
 import styled from 'styled-components';
 
-const StyledBox = styled.div`
-  /* background-color: rgba(166,149,131, .9);
-  border: 1px solid #000;
-  box-shadow: inset 1px 1px 2px 0px rgba(0,0,0,0.75); */
+export const StyledBox = styled.div`
   float: left;
   width: 140px;
   margin: 3% 0 3% 7%;
@@ -16,7 +8,7 @@ const StyledBox = styled.div`
   position: relative;
 `
 
-const ContainerTitle = styled.div`
+export const ContainerTitle = styled.div`
   background-color: rgba(166,149,131, .9);
   border: 1px solid #000;
   box-shadow: inset 1px 1px 2px 0px rgba(0,0,0,0.75);
@@ -24,7 +16,6 @@ const ContainerTitle = styled.div`
   color: #000;
   width: 40%;
   height: 20px;
-  /* border: 1px solid red; */
   position: absolute;
   left: 45px;
   padding: 2px;
@@ -35,7 +26,7 @@ const ContainerTitle = styled.div`
   text-overflow: ellipsis;
 `
 
-const Conector = styled.div`
+export const Conector = styled.div`
   width: 17px;
   height: 17px;
   background-color: rgba(166,149,131, .9);
@@ -48,7 +39,7 @@ const Conector = styled.div`
   border-top: 0;
 `
 
-const ClickTimerButton__right = styled.div`
+export const ClickTimerButton__right = styled.div`
   width: 17px;
   height: 10px;
   background-color: rgba(166,149,131, .9);
@@ -61,26 +52,10 @@ const ClickTimerButton__right = styled.div`
   transform: rotate(30deg);
 `
 
-const ClickTimerButton__left = styled(ClickTimerButton__right)`
+export const ClickTimerButton__left = styled(ClickTimerButton__right)`
   left: 105px;
   z-index: 1;
   top: 39px;
   transform: rotate(-34deg);
   left: 20px;
 `
-
-const Box = () => {
-  return (
-    <StyledBox>
-      <ContainerTitle>
-        REACT 
-      </ContainerTitle>
-      <Conector />
-      <ClickTimerButton__left />
-      <ClickTimerButton__right />
-      <Timer />
-    </StyledBox>
-  );
-}
-
-export default Box;
