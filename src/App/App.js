@@ -32,7 +32,6 @@ function App() {
         <StyledWrapper__main>
           <Box/>
           <Box/>
-          <Box/>
         </StyledWrapper__main>
       </StyledWrapper>
     </Provider>

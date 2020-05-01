@@ -41,7 +41,6 @@ export const StyledModal__content = styled.div`
   top: 30px;
   box-sizing: border-box;
   padding: 8px 8px 16px 8px;
-  /* overflow: hidden; */
   box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.5);
   li {
     clear: both;

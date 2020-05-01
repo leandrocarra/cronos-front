@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import * as modalActions from '../../Store/actions/modal';
+import { bindActionCreators } from 'redux';
 
 import Modal from '../Modal/Modal';
 import styled from 'styled-components';
@@ -15,27 +16,26 @@ const StyledSettings = styled.div`
   margin-left: 30%;
 `
 
-const Settings = ({ modal, modalFlow }) => {
+const Settings = ({ toggleModal, handleToggleModal }) => {
   return (
     <>
       <StyledSettings>
         <img 
           src={settingsIcon} 
           alt="settings" 
-          onClick={() => modalFlow(modal.toggleModal)}
+          onClick={() => handleToggleModal(toggleModal)}
         />
       </StyledSettings>
-      { modal.toggleModal && <Modal /> }
+      { toggleModal && <Modal /> }
     </>
   )
 }
 
 const mapStateToProps = state => ({
-  modal: state.modal
+  toggleModal: state.modal.toggleModal
 });
 
-const mapDispatchToProps = dispatch => ({
-  modalFlow: (toggleModal) => dispatch(modalActions.modalFlow(toggleModal))
-});
+const mapDispatchToProps = dispatch => bindActionCreators( modalActions, dispatch )
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(Settings);

@@ -24,7 +24,6 @@ export const Circle = styled.div`
     margin-left: -26px;
   }
 
-
   .circle__clock {
     position: absolute;
     top: 0px;

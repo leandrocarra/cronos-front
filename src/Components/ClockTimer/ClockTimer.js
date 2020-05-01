@@ -13,7 +13,7 @@ class ClockTimer extends Component {
       finalTime : 1500,
       countTime : 0,
       countSeconds : 0,
-      countMinuts : 0,
+      countMinutes : 0,
       progress : 0,
       timerInterval: null
     };
@@ -27,14 +27,12 @@ class ClockTimer extends Component {
     this.onPause = this.onPause.bind(this);
   }
 
-
-
   // checa se o contador de segundos chegou a 60 segundos e adiciona 1 minuto
   minuteAdder(secondCounter) {
     if( secondCounter === 2) {
       this.setState({
         countSeconds: 0,
-        countMinuts: this.state.countMinuts + 60
+        countMinutes: this.state.countMinutes + 60
       })
     }
   }
@@ -67,9 +65,9 @@ class ClockTimer extends Component {
         this.secondsAdder(this.state.countTime)        
         this.minuteAdder(this.state.countSeconds);
         this.timeControl(this.state.countSeconds);
-        this.progressTimer(this.state.countMinuts)
+        this.progressTimer(this.state.countMinutes)
         console.log(this.state.countSeconds, ' segundos')
-      }, 1000)
+      }, 300)
     })
   }
 
