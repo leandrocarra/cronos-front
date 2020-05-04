@@ -4,7 +4,6 @@ const INITIAL_STATE = {
 
 export default function modal(state = INITIAL_STATE, action) {
   if(action.type === 'TOOGLE_MODAL'){
-    console.log(state)
     return { 
       ...state, 
       toggleModal: action.isOpen}

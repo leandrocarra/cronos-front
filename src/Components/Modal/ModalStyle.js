@@ -51,7 +51,7 @@ export const StyledModal__content = styled.div`
       float: left;
       width: 20px;
     }
-    span {
+    h2 {
       margin-left: 15px;
       float: left;
       padding-top: 4px;
@@ -60,4 +60,32 @@ export const StyledModal__content = styled.div`
       }
     }
   }
+`
+
+export const StyledModal__container = styled.div`
+  clear: both;
+  padding-top: 10px;
+  div {
+    margin-left: 50px;
+    margin-bottom: 15px;
+  }
+  input {
+    padding: 10px 10px 5px 5px;
+    border: 0 none;
+    outline: 0 none;
+    border-bottom: 1px solid #404040;
+    color: #404040;
+  }
+`
+
+export const StyledModal__button = styled.button`
+  width: 60%;
+  padding: 10px;
+  border-radius: 5px;
+  float: right;
+  margin-right: 30px;
+  background-color: #4585F5;
+  color: #fff;
+  border: 0 none;
+  outline: 0 none;
 `
