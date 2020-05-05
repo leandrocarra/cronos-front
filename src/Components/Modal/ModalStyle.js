@@ -26,9 +26,13 @@ export const StyledModal__header = styled.div`
 export const StyledModal__close = styled.div`
   position: absolute;
   top: -11px;
-  right: -7px;
-  color: #fff;
+  right: -11px;
   font-size: 25px;
+  img {
+    width: 23px;
+    height: 23px;
+  }
+
 `
 
 export const StyledModal__content = styled.div`

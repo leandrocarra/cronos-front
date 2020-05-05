@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 import axios from 'axios';
 
 import * as style from './ModalStyle';
+import closeIcon from '../../icons/close.svg';
 import addIcon from '../../icons/add.svg';
 import editIcon from '../../icons/edit.svg';
 import deleteIcon from '../../icons/delete.svg';
@@ -14,7 +15,8 @@ const URL = 'http://localhost:7777/add';
 
 const handleAdd = () => {
   console.log('adicionado');
-  axios.post(URL, {description: 'testeste'}).then(resp => console.log('funfo'));
+  axios.post(URL, {description: 'testeste'})
+    .then(resp => console.log('funfo'));
 }
 
 const Modal = ({ toggleModal, handleToggleModal }) => {
@@ -24,7 +26,9 @@ const Modal = ({ toggleModal, handleToggleModal }) => {
         <style.StyledModal__header>
           Menu
         </style.StyledModal__header>
-        <style.StyledModal__close onClick={() => handleToggleModal(toggleModal)}>X</style.StyledModal__close>
+        <style.StyledModal__close onClick={() => handleToggleModal(toggleModal)}>
+          <img src={closeIcon} alt="icon"/>
+        </style.StyledModal__close>
         <ul>
           <li>
             <img src={addIcon} alt="icon"/>
