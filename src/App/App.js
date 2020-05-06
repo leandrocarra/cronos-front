@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-pascal-case */
-import React from 'react';
+import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import store from '../Store';
 
@@ -24,18 +24,20 @@ const StyledWrapper__main = styled.section`
   min-height: 100vh;
 `;
 
-function App() {
-  return (
-    <Provider store={store}>
-      <StyledWrapper>
-        <Header />
-        <StyledWrapper__main>
-          <Box/>
-          <Box/>
-        </StyledWrapper__main>
-      </StyledWrapper>
-    </Provider>
-  );
+class App extends Component {
+  render() { 
+    return (
+      <Provider store={store}>
+        <StyledWrapper>
+          <Header />
+          <StyledWrapper__main>
+            <Box/>
+            <Box/>
+          </StyledWrapper__main>
+        </StyledWrapper>
+      </Provider>
+    );
+  }
 }
-
+ 
 export default App;
