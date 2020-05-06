@@ -1,25 +1,25 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import * as modalActions from '../../Store/actions/modal';
+import * as Actions from '../../Store/actions';
+
 import { bindActionCreators } from 'redux';
-import axios from 'axios';
 
 import * as style from './ModalStyle';
+
 import closeIcon from '../../icons/close.svg';
 import addIcon from '../../icons/add.svg';
 import editIcon from '../../icons/edit.svg';
 import deleteIcon from '../../icons/delete.svg';
 import userIcon from '../../icons/user.svg';
+import NewClock from '../NewClock/NewClock';
 
-const URL = 'http://localhost:7777/add';
+const Modal = ({ 
+  toggleModal,
+  toggleSanfona,
+  handleToggleModal,
+  handleToggleSanfona,
+}) => {
 
-const handleAdd = () => {
-  console.log('adicionado');
-  axios.post(URL, {description: 'testeste'})
-    .then(resp => console.log('funfo'));
-}
-
-const Modal = ({ toggleModal, handleToggleModal }) => {
   return (
     <style.StyledModal>
       <style.StyledModal__content>
@@ -32,18 +32,8 @@ const Modal = ({ toggleModal, handleToggleModal }) => {
         <ul>
           <li>
             <img src={addIcon} alt="icon"/>
-            <h2>Add New one</h2>
-            <style.StyledModal__container>
-              <div>
-                <input type="text" placeholder="titulo"/>
-              </div>
-              <div>
-                <input type="text" placeholder="QTD de horas iniciais"/>
-              </div>
-              <style.StyledModal__button onClick={handleAdd}>
-                ADICIONAR NOVO
-              </style.StyledModal__button>
-            </style.StyledModal__container>
+            <h2 onClick={() => handleToggleSanfona(toggleSanfona)}>Add New one</h2>
+            { toggleSanfona && <NewClock /> }
           </li>
           <li>
             <img src={editIcon} alt="icon"/>
@@ -68,12 +58,12 @@ const Modal = ({ toggleModal, handleToggleModal }) => {
 }
 
 const mapStateToProps = state => ({
-  toggleModal: state.modal.toggleModal
+  toggleModal: state.modal.toggleModal,
+  toggleSanfona: state.sanfona.toggleSanfona,
 })
 
 const mapDispatchToProps = dispatch => (
-  //handleToggleModal: (toggleModal) => dispatch(modalActions.handleToggleModal(toggleModal))
-  bindActionCreators(modalActions, dispatch)
+  bindActionCreators(Actions, dispatch)
 )
 
 export default connect(mapStateToProps, mapDispatchToProps)(Modal);

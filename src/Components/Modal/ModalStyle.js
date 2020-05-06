@@ -32,7 +32,6 @@ export const StyledModal__close = styled.div`
     width: 23px;
     height: 23px;
   }
-
 `
 
 export const StyledModal__content = styled.div`
@@ -48,7 +47,7 @@ export const StyledModal__content = styled.div`
   box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.5);
   li {
     clear: both;
-    padding: 10px 0;
+    padding: 10px 0 10px 15px;
     overflow: hidden;
     
     img {
@@ -64,32 +63,4 @@ export const StyledModal__content = styled.div`
       }
     }
   }
-`
-
-export const StyledModal__container = styled.div`
-  clear: both;
-  padding-top: 10px;
-  div {
-    margin-left: 50px;
-    margin-bottom: 15px;
-  }
-  input {
-    padding: 10px 10px 5px 5px;
-    border: 0 none;
-    outline: 0 none;
-    border-bottom: 1px solid #404040;
-    color: #404040;
-  }
-`
-
-export const StyledModal__button = styled.button`
-  width: 60%;
-  padding: 10px;
-  border-radius: 5px;
-  float: right;
-  margin-right: 30px;
-  background-color: #4585F5;
-  color: #fff;
-  border: 0 none;
-  outline: 0 none;
 `
