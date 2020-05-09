@@ -29,7 +29,7 @@ class ClockTimer extends Component {
 
   // checa se o contador de segundos chegou a 60 segundos e adiciona 1 minuto
   minuteAdder(secondCounter) {
-    if( secondCounter === 2) {
+    if( secondCounter === 2 ) {
       this.setState({
         countSeconds: 0,
         countMinutes: this.state.countMinutes + 60

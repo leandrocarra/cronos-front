@@ -5,17 +5,16 @@ import Timer from '../Timer/Timer';
 
 import * as style from './BoxStyle';
 
-
-const Box = () => {
+const Box = ({ description, investedTime }) => {
   return (
     <style.StyledBox>
       <style.ContainerTitle>
-        REACT 
+        {description} 
       </style.ContainerTitle>
       <style.Conector />
       <style.ClickTimerButton__left />
       <style.ClickTimerButton__right />
-      <Timer />
+      <Timer investedTime={investedTime}/>
     </style.StyledBox>
   );
 }

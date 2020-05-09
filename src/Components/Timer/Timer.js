@@ -11,10 +11,10 @@ const Circle = styled.div`
   z-index: 2;
 `
 
-const Timer = () => {
+const Timer = ({ investedTime }) => {
   return (
     <Circle>
-      <ClockTimer />
+      <ClockTimer investedTime={investedTime}/>
     </Circle>
   );
 }

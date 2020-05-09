@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import store from '../Store';
+import { listClocks } from '../api/get';
 
 import './reset.css';
 import styled from 'styled-components';
@@ -25,14 +26,37 @@ const StyledWrapper__main = styled.section`
 `;
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      items: []
+    }
+  }
+
+  componentDidMount(){
+    listClocks()
+      .then(data => {
+        this.setState({items: data})
+      })
+      console.log(this.state.items);
+  }
+  
   render() { 
+    const { items } = this.state;
+    {console.log(this.state.items)}
     return (
       <Provider store={store}>
         <StyledWrapper>
           <Header />
-          <StyledWrapper__main>
-            <Box/>
-            <Box/>
+          <StyledWrapper__main onClick={this.getClocks}>
+            {items.map(item => 
+              <span key={item._id}>
+                <Box
+                  description={item.description}
+                  investedTime={item.investedTime}
+                />
+              </span>
+            )}
           </StyledWrapper__main>
         </StyledWrapper>
       </Provider>
