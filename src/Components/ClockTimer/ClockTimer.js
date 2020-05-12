@@ -17,7 +17,7 @@ class ClockTimer extends Component {
       progress : 0,
       timerInterval: null
     };
-
+    
     this.onPlay = this.onPlay.bind(this);
     this.onStop = this.onStop.bind(this);
     this.minuteAdder = this.minuteAdder.bind(this);

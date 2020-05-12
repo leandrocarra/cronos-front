@@ -43,17 +43,16 @@ class App extends Component {
   
   render() { 
     const { items } = this.state;
-    {console.log(this.state.items)}
     return (
       <Provider store={store}>
         <StyledWrapper>
           <Header />
           <StyledWrapper__main onClick={this.getClocks}>
-            {items.map(item => 
-              <span key={item._id}>
+            {items.map(clock => 
+              <span key={clock._id}>
                 <Box
-                  description={item.description}
-                  investedTime={item.investedTime}
+                  description={clock.description}
+                  investedTime={clock.investedTime}
                 />
               </span>
             )}
