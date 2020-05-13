@@ -1,0 +1,1 @@
+export const TOGGLE_SANFONA = 'sanfona/TOGGLE_SANFONA'

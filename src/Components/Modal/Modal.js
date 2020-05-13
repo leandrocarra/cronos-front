@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import * as Actions from '../../Store/actions';
+import { actionsModal } from '../../modules/modal';
+import { actionsSanfona } from '../../modules/sanfona';
 
 import { bindActionCreators } from 'redux';
 
@@ -19,7 +20,7 @@ const Modal = ({
   handleToggleModal,
   handleToggleSanfona,
 }) => {
-
+  console.log('ereeerr', toggleModal)
   return (
     <style.StyledModal>
       <style.StyledModal__content>
@@ -63,7 +64,10 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => (
-  bindActionCreators(Actions, dispatch)
+  bindActionCreators({
+    ...actionsModal,
+    ...actionsSanfona,
+   },dispatch)
 )
 
 export default connect(mapStateToProps, mapDispatchToProps)(Modal);

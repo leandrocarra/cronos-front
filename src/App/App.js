@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-pascal-case */
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
-import store from '../Store';
+import store from '../Store/create-store';
 import { listClocks } from '../api/get';
 
 import './reset.css';
@@ -38,7 +38,6 @@ class App extends Component {
       .then(data => {
         this.setState({items: data})
       })
-      console.log(this.state.items);
   }
   
   render() { 
