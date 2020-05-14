@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import { connect } from 'react-redux';
+
+import { actionsApi } from '../../modules/api';
+import { bindActionCreators } from 'redux';
+
 import * as style from './NewClockStyle';
 
-const URL = 'http://localhost:7777/add';
-
-const NewClock = () => {
+const NewClock = ({ postData }) => {
   const [newClock, setNewClock] = useState({
     description: '',
     investedTime: '',
@@ -16,10 +18,8 @@ const NewClock = () => {
     })
   };
 
-  const handleAddNewClock = () => {
-    console.log({...newClock})
-    axios.post(URL, {...newClock})
-      .then(() => setSuccess(true));
+  const handleSuccessAddClock = (newClock) => {
+    postData(newClock)
   }
 
   return (
@@ -48,7 +48,7 @@ const NewClock = () => {
               onChange={handleChangeNewClock}
             />
           </div>
-          <style.StyledNewClock__button onClick={handleAddNewClock}>
+          <style.StyledNewClock__button onClick={() => handleSuccessAddClock(newClock)}>
             ADICIONAR NOVO
           </style.StyledNewClock__button>
         </>
@@ -56,5 +56,13 @@ const NewClock = () => {
     </style.StyledNewClock__container>
   );
 }
+
+const mapStateToProps = state => ({
+  data: state.api.data
+})
+
+const mapDispatchToProps = dispatch => (
+  bindActionCreators(actionsApi ,dispatch)
+)
  
-export default NewClock;
+export default connect(mapStateToProps, mapDispatchToProps)(NewClock);

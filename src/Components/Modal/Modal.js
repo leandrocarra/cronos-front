@@ -20,7 +20,6 @@ const Modal = ({
   handleToggleModal,
   handleToggleSanfona,
 }) => {
-  console.log('ereeerr', toggleModal)
   return (
     <style.StyledModal>
       <style.StyledModal__content>

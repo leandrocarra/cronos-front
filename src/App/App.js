@@ -1,8 +1,9 @@
 /* eslint-disable react/jsx-pascal-case */
 import React, { Component } from 'react';
-import { Provider } from 'react-redux';
-import store from '../Store/create-store';
-import { listClocks } from '../api/get';
+import { connect } from 'react-redux';
+
+import { actionsApi } from '../modules/api';
+import { bindActionCreators } from 'redux';
 
 import './reset.css';
 import styled from 'styled-components';
@@ -26,40 +27,36 @@ const StyledWrapper__main = styled.section`
 `;
 
 class App extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      items: []
-    }
-  }
 
   componentDidMount(){
-    listClocks()
-      .then(data => {
-        this.setState({items: data})
-      })
+    this.props.getData()
   }
   
   render() { 
-    const { items } = this.state;
     return (
-      <Provider store={store}>
-        <StyledWrapper>
-          <Header />
-          <StyledWrapper__main onClick={this.getClocks}>
-            {items.map(clock => 
-              <span key={clock._id}>
-                <Box
-                  description={clock.description}
-                  investedTime={clock.investedTime}
-                />
-              </span>
-            )}
-          </StyledWrapper__main>
-        </StyledWrapper>
-      </Provider>
+      <StyledWrapper>
+        <Header />
+        <StyledWrapper__main onClick={this.getClocks}>
+          {this.props.data.map(clock => 
+            <span key={clock._id}>
+              <Box
+                description={clock.description}
+                investedTime={clock.investedTime}
+              />
+            </span>
+          )}
+        </StyledWrapper__main>
+      </StyledWrapper>
     );
   }
 }
- 
-export default App;
+
+const mapStateToProps = state => ({
+  data: state.api.data
+})
+
+const mapDispatchToProps = dispatch => (
+  bindActionCreators(actionsApi ,dispatch)
+)
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
