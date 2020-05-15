@@ -6,12 +6,11 @@ import { bindActionCreators } from 'redux';
 
 import * as style from './NewClockStyle';
 
-const NewClock = ({ postData }) => {
+const NewClock = ({ postData, toggleSuccess }) => {
   const [newClock, setNewClock] = useState({
     description: '',
     investedTime: '',
   });
-  const [success, setSuccess] = useState(false);
   const handleChangeNewClock = (e) =>{ setNewClock({
       ...newClock,
       [e.target.name]: [e.target.value],
@@ -24,7 +23,7 @@ const NewClock = ({ postData }) => {
 
   return (
     <style.StyledNewClock__container>
-      {success ? (
+      {toggleSuccess ? (
         <style.StyledNewClock__success>
           ADICIONADO
         </style.StyledNewClock__success>
@@ -58,7 +57,8 @@ const NewClock = ({ postData }) => {
 }
 
 const mapStateToProps = state => ({
-  data: state.api.data
+  data: state.api.data,
+  toggleSuccess: state.sanfona.toggleSuccess,
 })
 
 const mapDispatchToProps = dispatch => (

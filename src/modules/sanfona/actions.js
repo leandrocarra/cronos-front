@@ -1,4 +1,4 @@
-import { TOGGLE_SANFONA } from './constants'
+import { TOGGLE_SANFONA, TOGGLE_SUCCESS } from './constants'
 
 export function handleToggleSanfona(isOpen){
   return {
@@ -6,3 +6,11 @@ export function handleToggleSanfona(isOpen){
     isOpen: !isOpen
   }
 }
+
+export function handleToggleSuccess(isOpen){
+  return {
+    type: TOGGLE_SUCCESS,
+    isOpen: !isOpen
+  }
+}
+
