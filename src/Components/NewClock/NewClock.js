@@ -11,7 +11,8 @@ const NewClock = ({ postData, toggleSuccess }) => {
     description: '',
     investedTime: '',
   });
-  const handleChangeNewClock = (e) =>{ setNewClock({
+  const handleChangeNewClock = (e) =>{
+    setNewClock({
       ...newClock,
       [e.target.name]: [e.target.value],
     })
@@ -20,7 +21,7 @@ const NewClock = ({ postData, toggleSuccess }) => {
   const handleSuccessAddClock = (newClock) => {
     postData(newClock)
   }
-
+  
   return (
     <style.StyledNewClock__container>
       {toggleSuccess ? (

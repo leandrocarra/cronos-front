@@ -6,10 +6,10 @@ const INITIAL_STATE = {
 }
 
 export default function sanfona(state = INITIAL_STATE, action) {
-  
+
   switch(action.type) {
     case TOGGLE_SANFONA:
-      return { 
+      return {
         ...state, 
         toggleSanfona: action.isOpen
     }

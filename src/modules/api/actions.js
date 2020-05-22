@@ -21,3 +21,11 @@ export function postData(clocks){
     .then(() => dispatch(handleToggleModal(true)))
   }
 }
+
+export function deleteData(id){
+  return dispatch => {
+    axios.delete(`${URL}/stores/${id}`)
+    .then(() => dispatch(getData()))
+    .then(() => dispatch(handleToggleModal(true)))
+  }
+}
