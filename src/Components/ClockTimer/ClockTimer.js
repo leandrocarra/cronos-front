@@ -10,15 +10,17 @@ class ClockTimer extends Component {
     super(props);
 
     this.state = {
-      finalTime : 1500,
+      finalTime : 8,
       countTime : 0,
       countSeconds : 0,
       countMinutes : 0,
       progress : 0,
-      timerInterval: null
+      timerInterval: null,
+      stopCheck: false
     };
     
     this.onPlay = this.onPlay.bind(this);
+    this.onStopCounter = this.onStopCounter.bind(this);
     this.onStop = this.onStop.bind(this);
     this.minuteAdder = this.minuteAdder.bind(this);
     this.secondsAdder = this.secondsAdder.bind(this);
@@ -29,7 +31,7 @@ class ClockTimer extends Component {
 
   // checa se o contador de segundos chegou a 60 segundos e adiciona 1 minuto
   minuteAdder(secondCounter) {
-    if( secondCounter === 2 ) {
+    if( secondCounter === 10 ) {
       this.setState({
         countSeconds: 0,
         countMinutes: this.state.countMinutes + 60
@@ -60,8 +62,9 @@ class ClockTimer extends Component {
 
   onPlay() {
     this.setState({
+      stopCheck: false,
       timerInterval: setInterval(() => {
-        this.onStop(this.state.countTime)
+        this.onStopCounter(this.state.countTime)
         this.secondsAdder(this.state.countTime)        
         this.minuteAdder(this.state.countSeconds);
         this.timeControl(this.state.countSeconds);
@@ -71,13 +74,33 @@ class ClockTimer extends Component {
     })
   }
 
+  // stopa, mas como os valores no state ainda existem e nao foram zerados ele, simula um pause
   onPause() {
-    console.log('pause')
+    clearInterval(this.state.timerInterval);
+    this.setState({
+      stopCheck: false
+    })
   }
 
-  onStop(countTime) {
+  // Pausa tudo e restarta do zero
+  onStop() {
+    clearInterval(this.state.timerInterval);
+    console.log('antesw', this.state.stopCheck)
+    this.setState({
+      countTime: 0,
+      countSeconds: 0,
+      countMinutes: 0,
+      progress: 0,
+      stopCheck: true
+    })
+    console.log('depois', this.state.stopCheck)
+  }
+
+  // Pausa assim que o contador atinge o limete
+  onStopCounter(countTime) {
     if( countTime === this.state.finalTime ){
       clearInterval(this.state.timerInterval);
+      this.onStop()
     }
   }
 
@@ -108,7 +131,13 @@ class ClockTimer extends Component {
                 <label htmlFor="pause" onClick={this.onPause} className="pauseButton">
                   <img src={pause} alt="pause" />
                 </label>
-                <input id="stop" type="radio" name="buttonsControll" className="stopButton"/>         
+                <input
+                  id="stop"
+                  type="radio"
+                  name="buttonsControll"
+                  className="stopButton"
+                  checked = {this.state.stopCheck ? "checked" : ''}
+                />         
                 <label htmlFor="stop" onClick={this.onStop} className="stopButton">
                   <img src={stop} alt="stop" />
                 </label>  
