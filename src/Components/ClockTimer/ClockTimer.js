@@ -100,15 +100,23 @@ class ClockTimer extends Component {
               <strong className="FocusTitle">FOCO</strong>
               <p className="minutsLeft">min</p>
               <div className="containerButtons">
-                <img src={play} alt="play" className="playButton" onClick={this.onPlay}/>
-                <img src={pause} alt="pause" className="pauseButton" onClick={this.onPause}/>
-                <img src={stop} alt="stop" className="stopButton" onClick={this.onStop}/>
+                <input id="play" type="radio" name="buttonsControll" className="playButton"/>
+                <label htmlFor="play" onClick={this.onPlay} className="playButton">
+                  <img src={play} alt="play"/>
+                </label>
+                <input id="pause" type="radio" name="buttonsControll" className="pauseButton"/>
+                <label htmlFor="pause" onClick={this.onPause} className="pauseButton">
+                  <img src={pause} alt="pause" />
+                </label>
+                <input id="stop" type="radio" name="buttonsControll" className="stopButton"/>         
+                <label htmlFor="stop" onClick={this.onStop} className="stopButton">
+                  <img src={stop} alt="stop" />
+                </label>  
               </div>
               <div className="containerTotalHours">
                 <p className="investmentTitle">INVESTIDOS</p>
                 <span className="containerHours">
-                  <span className="hourTime">3h</span>
-                  <span className="minutsTime">45m</span>
+                  <span>{this.props.investedTime}</span>
                 </span>
               </div>
               <svg

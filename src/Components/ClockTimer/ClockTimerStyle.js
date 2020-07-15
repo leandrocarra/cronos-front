@@ -102,10 +102,25 @@ export const Circle = styled.div`
     left: 0;
     width: 100%;
     z-index: 2;
-    img {
+    label {
       width: 20px;
       height: 20px;
       position: absolute;
+      border-radius: 50%;
+    }
+    label {
+     
+    }
+    input {
+      border: 0 none;
+      width: 0;
+      height: 0;
+
+      &:checked + label {
+        background-color: rgba(166,149,131, .7);
+        width: 20px;
+        height: 20px;
+      }
     }
     .playButton {
       right: 15px;

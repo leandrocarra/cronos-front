@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-
+import InputMask from 'react-input-mask';
 import { actionsApi } from '../../modules/api';
 import { bindActionCreators } from 'redux';
 
@@ -40,7 +40,8 @@ const NewClock = ({ postData, toggleSuccess }) => {
             />
           </div>
           <div>
-            <input
+            <InputMask
+              mask="99H :99M"
               type="text"
               placeholder="TEMPO INICIAL"
               name="investedTime"
